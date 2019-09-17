@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import MovieDetails from "../MovieDetails";
+import {Link} from "react-router-dom";
+
 
 const Movie = (props) => {
   console.log("wwww: ", props)
@@ -44,7 +46,9 @@ const Movie = (props) => {
     <div className="save-wrapper">
       {/* {movie.map(movie => ( */}
         <MovieDetails key={movie.id} movie={movie} />
-        <div className="save-button">Save</div>
+        <div className="save-button">
+          <Link onClick={() => console.log("Im clicked")}>Save</Link>
+          </div>
       {/* ))} */}
     </div>
   );
