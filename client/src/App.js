@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import SavedList from './Movies/SavedList';
 import MovieList from "./Movies/MovieList";
@@ -15,8 +15,10 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
+      {/* <Link to="/">MovieList</Link>
+      <Link to="/movies/:id">Movie</Link>     */}
 
-      <Route path="/" component={MovieList} /> 
+      <Route exact path="/" component={MovieList} /> 
       <Route path="/movies/:id" component={Movie} />
     </div>
   );
