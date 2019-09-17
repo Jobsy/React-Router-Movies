@@ -7,7 +7,7 @@ import MovieDetails from "../MovieDetails";
 const MovieList = props => {
 
   const [movies, setMovies] = useState([])
-
+  console.log("jjj: ", movies)
   useEffect(() => {
     const getMovies = () => {
       axios
@@ -25,9 +25,13 @@ const MovieList = props => {
 
   return (
     <div className="movie-list">
+     
       {movies.map(movie => (
+         <Link to={`/movies/${movie.id}`}>
         <MovieDetails key={movie.id} movie={movie} />
+        </Link>
       ))}
+      
     </div>
   );
 }

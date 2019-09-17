@@ -1,12 +1,12 @@
 
 import React from 'react';
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 
 const MovieDetails = function ({ movie }) {
     // debugger
     const { title, director, metascore, stars } = movie;
     return (
-      <Link to={`/movies/${movie.id}`}>
+    //   <Link to={`/movies/${movie.id}`}>
         <div className="movie-card">
           <h2>{title}</h2>
           <div className="movie-director">
@@ -23,7 +23,7 @@ const MovieDetails = function ({ movie }) {
             </div>
           ))}
         </div>
-      </Link>
+    //   </Link>
     );
   }
   
