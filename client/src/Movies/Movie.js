@@ -4,6 +4,7 @@ import axios from 'axios';
 import MovieDetails from "../MovieDetails";
 
 const Movie = (props) => {
+  console.log("wwww: ", props)
   
   const [movie, setMovie] = useState({stars: []});
   // const [movie, setMovie] = useState([]);
@@ -26,19 +27,24 @@ const Movie = (props) => {
   }, []);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    
+    const addToSavedList = props.addToSavedList;
+    console.log("wwww2: ", props.addToSavedList);
+    
+    addToSavedList(movie)
+    
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
   return (
-    <div className="movie-list">
+    <div className="save-wrapper">
       {/* {movie.map(movie => ( */}
         <MovieDetails key={movie.id} movie={movie} />
+        <div className="save-button">Save</div>
       {/* ))} */}
     </div>
   );
