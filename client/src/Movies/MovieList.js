@@ -7,7 +7,7 @@ import MovieDetails from "../MovieDetails";
 const MovieList = props => {
 
   const [movies, setMovies] = useState([])
-  console.log("jjj: ", movies)
+  // console.log("jjj: ", movies)
   useEffect(() => {
     const getMovies = () => {
       axios
