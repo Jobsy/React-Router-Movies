@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
-
 import MovieDetails from "../MovieDetails";
-import {Link} from "react-router-dom";
-
-// require('react-dom');
-// window.React2 = require('react');
-// console.log(window.React1 === window.React2);
 
 
 const Movie = (props) => {
-  console.log("wwww: ", props)
-  
-  const [movie, setMovie] = useState({stars: []});
-  // const [movie, setMovie] = useState([]);
 
-  console.log("llll: ", movie)
-
+  const [movie, setMovie] = useState({ stars: [] });
   const id = props.match.params.id;
 
   useEffect(() => {
@@ -28,7 +18,7 @@ const Movie = (props) => {
       .get(`http://localhost:5000/api/movies/${id}`)
       .then(response => {
         setMovie(response.data);
-      }) 
+      })
       .catch(error => {
         console.error(error);
       });
@@ -37,51 +27,22 @@ const Movie = (props) => {
 
   // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {
-    
     const addToSavedList = props.addToSavedList;
-    // console.log("wwww2: ", props.saved);
-    
     addToSavedList(movie)
-    // props.saved(movie)
-    
   }
-  // saveMovie()
+
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
   return (
     <div className="save-wrapper">
-      {/* {movie.map(movie => ( */}
-        <MovieDetails key={movie.id} movie={movie} />
+      <MovieDetails key={movie.id} movie={movie} />,
         <div className="save-button">
-          <Link onClick={() => saveMovie()}>Save</Link>
+        <Link onClick={() => saveMovie()}>Save</Link>
           </div>
-      {/* ))} */}
     </div>
   );
-  // const { title, director, metascore, stars } = movie;
-  // // console.log("ssss: ", stars)
-  // return (
-  //   <div className="save-wrapper">
-  //     <div className="movie-card">
-  //       <h2>{title}</h2>
-  //       <div className="movie-director">
-  //         Director: <em>{director}</em>
-  //       </div>
-  //       <div className="movie-metascore">
-  //         Metascore: <strong>{metascore}</strong>
-  //       </div>
-  //       <h3>Actors</h3>
-  //       {stars.map(star => (
-  //         <div key={star} className="movie-star">
-  //           {star}
-  //         </div>
-  //       ))}
-  //     </div>
-  //     <div className="save-button">Save</div>
-  //   </div>
-  // );
 }
 
 export default Movie;
