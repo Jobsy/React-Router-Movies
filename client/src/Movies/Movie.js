@@ -36,10 +36,10 @@ const Movie = (props) => {
   const saveMovie = () => {
     
     const addToSavedList = props.addToSavedList;
-    console.log("wwww2: ", props.saved);
+    // console.log("wwww2: ", props.saved);
     
-    // addToSavedList(movie)
-    props.saved(movie)
+    addToSavedList(movie)
+    // props.saved(movie)
     
   }
   // saveMovie()
