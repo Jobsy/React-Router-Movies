@@ -4,6 +4,10 @@ import axios from 'axios';
 import MovieDetails from "../MovieDetails";
 import {Link} from "react-router-dom";
 
+// require('react-dom');
+// window.React2 = require('react');
+// console.log(window.React1 === window.React2);
+
 
 const Movie = (props) => {
   console.log("wwww: ", props)
