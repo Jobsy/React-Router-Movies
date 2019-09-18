@@ -36,12 +36,13 @@ const Movie = (props) => {
   const saveMovie = () => {
     
     const addToSavedList = props.addToSavedList;
-    console.log("wwww2: ", props.addToSavedList);
+    console.log("wwww2: ", props.saved);
     
-    addToSavedList(movie)
+    // addToSavedList(movie)
+    props.saved(movie)
     
   }
-
+  // saveMovie()
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
@@ -51,7 +52,7 @@ const Movie = (props) => {
       {/* {movie.map(movie => ( */}
         <MovieDetails key={movie.id} movie={movie} />
         <div className="save-button">
-          <Link onClick={() => console.log("Im clicked")}>Save</Link>
+          <Link onClick={() => saveMovie()}>Save</Link>
           </div>
       {/* ))} */}
     </div>
