@@ -23,7 +23,7 @@ console.log("]]]]]: ", savedList);
       <Route exact path="/" component={MovieDetails} />
 
       {/* <Route path="/movies/:id" component={Movie} /> */}
-      <Route path="/movies/:id" render={props => <Movie {...props}/>} />
+      <Route path="/movies/:id" render={props => <Movie {...props} saved={addToSavedList} />} />
 
     </div>
   );
